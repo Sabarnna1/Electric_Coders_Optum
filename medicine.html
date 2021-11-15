@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Medicines</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+	</head>
+	<body>
+		<style>
+		.sidenav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #111;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+		}
+		.sidenav a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+		}
+		.sidenav a:hover {
+		color: #f1f1f1;
+		}
+		.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+		}
+		#main {
+		transition: margin-left .5s;
+		padding: 16px;
+		}
+		@media screen and (max-height: 450px) {
+		.sidenav {padding-top: 15px;}
+		.sidenav a {font-size: 18px;}
+		}
+		h1, h3,h2{
+		text-align:center;
+		}
+		h1 {
+		color:rgba(100, 50, 255, .8);
+		font-family: 'Pacifico', cursive;
+		color:#212121;
+		}
+		
+		</style>
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="./index.html">Home</a>
+			<a href="./allergies.html">Allergies</a>
+			<a href="./condition.html">Conditions</a>
+			<a href="./procedures.html">Procedures</a>
+			<a href="./immunizations.html">Immunizations</a>
+			<a href="#">Medicines</a>
+			<a href="./insurance_company.html">Insurance Companies</a>
+			<a href="./insurance_transactions.html">Insurance Transactions</a>
+			<a href="./adherance.html">Adherence</a>
+		</div>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+		<div id="main">
+			<h1>Medicine Name and Count</h1>
+			<canvas id="myChart" width="600" height="350"></canvas>
+			<h2>Some Useful Points</h2>
+			<ul>
+				<li style="color: #EB8E10; text-align: center;"><h3 style="color: #EB8E10; text-align: left;">Maximum type of medicine is <b>Hydrochlorothiazide 25 MG Oral Tablet</b> which is 81</h3> </li>
+				<li style="color: #EB8E10;"><h3 style="color: #EB8E10; text-align: left;">Total types of medicines are 134</h3> </li>
+			</ul>
+		</div>
+		<script>
+		const ctx = document.getElementById('myChart').getContext('2d');
+		const myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+		labels: ['Hydrochlorothiazide 25 MG Oral Tablet',
+		'insulin human  isophane 70 UNT/ML / Regular Insulin  Human 30 UNT/ML Injectable Suspension [Humulin]',
+		'1 ML Epoetin Alfa 4000 UNT/ML Injection [Epogen]',
+		'Atenolol 50 MG / Chlorthalidone 25 MG Oral Tablet',
+		'24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet',
+		'amLODIPine 5 MG / Hydrochlorothiazide 12.5 MG / Olmesartan medoxomil 20 MG Oral Tablet',
+		'Simvastatin 10 MG Oral Tablet',
+		'NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler',
+		'120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler',
+		'Hydrochlorothiazide 12.5 MG',
+		'Digoxin 0.125 MG Oral Tablet',
+		'Warfarin Sodium 5 MG Oral Tablet',
+		'Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray',
+		'Verapamil Hydrochloride 40 MG',
+		'Simvastatin 20 MG Oral Tablet',
+		'Amlodipine 5 MG Oral Tablet',
+		'Clopidogrel 75 MG Oral Tablet',
+		'Acetaminophen 325 MG Oral Tablet',
+		'Cisplatin 50 MG Injection',
+		'PACLitaxel 100 MG Injection',
+		'60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler',
+		'Naproxen sodium 220 MG Oral Tablet',
+		'Amoxicillin 250 MG / Clavulanate 125 MG Oral Tablet',
+		'Insulin Lispro 100 UNT/ML Injectable Solution [Humalog]',
+		'Ibuprofen 200 MG Oral Tablet',
+		'Acetaminophen 160 MG Chewable Tablet',
+		'Acetaminophen 21.7 MG/ML / Dextromethorphan Hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution',
+		'Ibuprofen 100 MG Oral Tablet',
+		'Trinessa 28 Day Pack',
+		'NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector',
+		'Yaz 28 Day Pack',
+		'Jolivette 28 Day Pack',
+		'Amoxicillin 250 MG Oral Capsule',
+		'Seasonique 91 Day Pack',
+		'Levora 0.15/30 28 Day Pack',
+		'1 ML medroxyprogesterone acetate 150 MG/ML Injection',
+		'Acetaminophen 300 MG / HYDROcodone Bitartrate 5 MG Oral Tablet',
+		'Natazia 28 Day Pack',
+		'Camila 28 Day Pack',
+		'Abuse-Deterrent 12 HR Oxycodone Hydrochloride 15 MG Extended Release Oral Tablet',
+		'Etonogestrel 68 MG Drug Implant',
+		'Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet',
+		'Errin 28 Day Pack',
+		'Penicillin V Potassium 250 MG Oral Tablet',
+		'Nitrofurantoin 5 MG/ML Oral Suspension',
+		'Phenazopyridine hydrochloride 100 MG Oral Tablet',
+		'Mirena 52 MG Intrauterine System',
+		'Penicillin V Potassium 500 MG Oral Tablet',
+		'24 HR metoprolol succinate 100 MG Extended Release Oral Tablet [Toprol]',
+		'Furosemide 40 MG Oral Tablet',
+		'Vitamin B 12 5 MG/ML Injectable Solution',
+		'NuvaRing 0.12/0.015 MG per 24HR 21 Day Vaginal Ring',
+		'10 ML Furosemide 10 MG/ML Injection',
+		'Alendronic acid 10 MG Oral Tablet',
+		'ferrous sulfate 325 MG Oral Tablet',
+		'Meperidine Hydrochloride 50 MG Oral Tablet',
+		'1 ML medroxyPROGESTERone acetate 150 MG/ML Injection',
+		'Cefuroxime 250 MG Oral Tablet',
+		'Acetaminophen 325 MG / oxyCODONE Hydrochloride 5 MG Oral Tablet',
+		'Fexofenadine hydrochloride 30 MG Oral Tablet',
+		'Loratadine 5 MG Chewable Tablet',
+		'10 ML Doxorubicin Hydrochloride 2 MG/ML Injection',
+		'Etoposide 100 MG Injection',
+		'168 HR Ethinyl Estradiol 0.00146 MG/HR / norelgestromin 0.00625 MG/HR Transdermal System',
+		'diphenhydrAMINE Hydrochloride 25 MG Oral Tablet',
+		'Amoxicillin 500 MG Oral Tablet',
+		'Alteplase 100 MG Injection',
+		'1 ML DOCEtaxel 20 MG/ML Injection',
+		'0.25 ML Leuprolide Acetate 30 MG/ML Prefilled Syringe',
+		'100 ML Epirubicin Hydrochloride 2 MG/ML Injection',
+		'Diazepam 5 MG Oral Tablet',
+		'Acetaminophen 325 MG / HYDROcodone Bitartrate 7.5 MG Oral Tablet',
+		'Hydrocortisone 10 MG/ML Topical Cream',
+		'clonazePAM 0.25 MG Oral Tablet',
+		'Carbamazepine[Tegretol]',
+		'predniSONE 5 MG Oral Tablet',
+		'10 ML oxaliplatin 5 MG/ML Injection',
+		'Leucovorin 100 MG Injection',
+		'Aspirin 81 MG Oral Tablet',
+		'Galantamine 4 MG Oral Tablet',
+		'Captopril 25 MG Oral Tablet',
+		'3 ML Amiodarone hydrocholoride 50 MG/ML Prefilled Syringe',
+		'1 ML Epinephrine 1 MG/ML Injection',
+		'Kyleena 19.5 MG Intrauterine System',
+		'Atropine Sulfate 1 MG/ML Injectable Solution',
+		'Cyclophosphamide 1000 MG Injection',
+		'Paclitaxel 100 MG Injection',
+		'Ortho Tri-Cyclen 28 Day Pack',
+		'Chlorpheniramine Maleate 2 MG/ML Oral Solution',
+		'Liletta 52 MG Intrauterine System',
+		'Astemizole 10 MG Oral Tablet',
+		'Norinyl 1+50 28 Day Pack',
+		'NITROFURANTOIN  MACROCRYSTALS 50 MG Oral Capsule',
+		'Mestranol / Norethynodrel [Enovid]',
+		'cetirizine hydrochloride 5 MG Oral Tablet',
+		'Atorvastatin 80 MG Oral Tablet',
+		'Levothyroxine Sodium 0.075 MG Oral Tablet',
+		'Terfenadine 60 MG Oral Tablet',
+		'FLUoxetine 20 MG Oral Capsule',
+		'Estrostep Fe 28 Day Pack',
+		'24hr nicotine transdermal patch',
+		'24 HR Donepezil hydrochloride 10 MG / Memantine hydrochloride 28 MG Extended Release Oral Capsule',
+		'Tamoxifen 10 MG Oral Tablet',
+		'Memantine hydrochloride 2 MG/ML Oral Solution',
+		'Loratadine 10 MG Oral Tablet',
+		'neratinib 40 MG Oral Tablet',
+		'cetirizine hydrochloride 10 MG Oral Tablet',
+		'cycloSPORINE  modified 100 MG Oral Capsule',
+		'5 ML hyaluronidase-oysk 2000 UNT/ML / trastuzumab 120 MG/ML Injection',
+		'Colchicine 0.6 MG Oral Tablet',
+		'Doxycycline Monohydrate 50 MG Oral Tablet',
+		'Doxycycline Monohydrate 100 MG Oral Tablet'],
+		datasets: [{
+		label: 'Medicines',
+		data: [3954, 3880, 3388, 3347, 2895, 2867, 2273, 2072, 2072, 1598, 1278, 1278,
+		1264, 1259,  948,  921,  904,  644,  572,  541,  505,  276,  271,  232,
+		188,  148,  126,  123,  113,  107,  107,  106,  104,   97,   93,   90,
+		88,   84,   83,   83,   83,   80,   79,   76,   76,   76,   73,   70,
+		57,   57,   53,   52,   51,   44,   43,   41,   38,   37,   37,   33,
+		33,   32,   31,   30,   30,   28,   28,   27,   27,   24,   24,   24,
+		22,   22,   21,   19,   17,   17,   17,   17,   17,   16,   16,   16,
+		16,   16,   16,   15,   15,   14,   14,   14,   13,   12,   12,   11,
+		11,    9,    8,    8,    7,    7,    7,    7,    6,    5,    5,    5,
+		4,    3,    3,    3,    3,    2,    2,    2,    2,    2,    2,    2,
+		2,    2,    1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+		1,    1],
+		backgroundColor: [
+		'rgba(249, 96, 131, 0.6)'
+		],
+		borderColor: [
+		'rgba(255, 99, 132, 1)'
+		],
+		borderWidth: 1
+		}]
+		},
+		options : {
+		scales: {
+		x: {
+		title: {
+		color: 'blue',
+		display: true,
+		text: 'Medicine Name'
+		}
+		}
+		}
+		}
+		});
+		function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("main").style.marginLeft = "250px";
+		document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+		}
+		function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("main").style.marginLeft= "0";
+		document.body.style.backgroundColor = "white";
+		}
+		</script>
+	</body>
+</html>
