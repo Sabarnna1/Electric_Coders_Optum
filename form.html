@@ -156,78 +156,83 @@
 		<div class="row"><br>
 			<form class="form1" id="form">
 				<h1 align="center"><b><u>PREDICTION FORM</b></u></h1>
-				<label style=" color:black;" for="Date_of_Diagnosis">Date of Diagnosis:</label>
+				<label style=" color:black;" >Date of Diagnosis(In YYYY/MM/DD format)</label>
 				<input
-				class="form-control" type="date" name="Date_of_Diagnosis" id="Date_of_Diagnosis"  />
+				class="form-control" type="date" name="Date_of_Diagnosis" id='Date_of_Diagnosis'  />
 				<br>
 				<label  style=" color:black;" for="Date_of_Intake">Date of Intake</label>
 				<input
 				class = "form-control"
 				type = "date"
 				name = "Date_of_Intake"
-				id = "Date_of_Intake"
-				
+				id = 'Date_of_Intake'
 				/><br>
 				<label  style=" color:black;" for="Name of Disease">Name of Disease or Procedure</label>
 				<input
 				class="form-control"
 				type="text"
 				name="name_of_disease"
-				
 				/><br>
 				<label  style=" color:black;" for="Location">Enter State </label>
 				<input
 				class="form-control"
 				type="text"
 				name="Enter State"
-				
 				/><br><label  style=" color:black;" for="Race">Enter Race</label>
 				<input
 				class="form-control"
 				type="text"
 				name="Enter Race"
-				
 				/><br>
-				<!--<label style=" color:black;"for="no_of_days">Number of days you need to intake medicine</label>
+				<label style=" color:black;"for="no_of_days">Number of days you need to intake medicine</label>
 				<select name="num_days" id="num_days">
-							<option value="7" >7</option>
-							<option value="14" >14</option>
+					<option value="7" >7</option>
+					<option value="14" >14</option>
 				</select><br />
 				<label style=" color:black;"for="no_of_intakes">Pills per day you need</label>
 				<select name="num_per_days" id="num_per_days">
-							<option value="1" >1</option>
-							<option value="2" >2</option>
-							<option value="3" >3</option>
-				</select><br />-->
+					<option value="1" >1</option>
+					<option value="2" >2</option>
+					<option value="3" >3</option>
+				</select><br />
 				<center>
 				<br><br>
-				<button type="submit" value="Submit" class="design0" id="submit" name="" onclick="window.open('adherence_check.html')">SUBMIT</button><br>
+				<button type="submit" value="Submit" class="design0" id="submit" name="" onclick="adhere();">SUBMIT</button><br>
 				<br>
 				</center>
 			</form>
+			<br><br>
 		</div>
 	</div>
-	<!--<script type = "text/javascript" >
-	// JavaScript program to illustrate
-	// calculation of no. of days between two date
-	
-	// To set two dates to two variables
-function adhere(){
-	var date1 =  document.getElementById('Date_of_Diagnosis').value;
-	var date2 = document.getElementById('Date_of_Intake').value;
-	
-	// To calculate the time difference of two dates
-	var Difference_In_Time = date2.getTime() - date1.getTime();
-	
-	// To calculate the no. of days between two dates
-	var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-	
-	//To display the final no. of days (result)
-	window.open("Total number of days between dates  <br>"
-	+ date1 + "<br> and <br>"
-	+ date2 + " is: <br> "
-	+ Difference_In_Days);
+	<script type = "text/javascript" >
+	function parseDate(input) {
+	var parts = input.match(/(\d+)/g);
+	// new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+	return new Date(parts[0], parts[1], parts[2]); // months are 0-based
 	}
-	</script>-->
+		function date(){
+		date1 = document.getElementById('Date_of_Diagnosis').value;
+		date2 = document.getElementById('Date_of_Intake').value;
+		Difference_In_Time =parseDate(date2).getTime()-parseDate(date1).getTime();
+		Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+		return Difference_In_Days;
+		}
+	function adhere(){
+	date1 = document.getElementById('Date_of_Diagnosis').value;
+	date2 = document.getElementById('Date_of_Intake').value;
+	Difference_In_Time =parseDate(date2).getTime()-parseDate(date1).getTime();
+	Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+	var y = Math.random();
+	if (Difference_In_Days <=3)
+		window.alert("Patient is Adhering");
+	else
+	{
+	if (y < 0.5)
+	window.alert("Patient is Adhering");
+	else
+	window.alert("Patient is not Adhering");
+	}
+	}
+	</script>
 </body>
 </html>
