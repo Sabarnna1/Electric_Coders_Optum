@@ -158,7 +158,7 @@
 				<h1 align="center"><b><u>PREDICTION FORM</b></u></h1>
 				<label style=" color:black;" >Date of Diagnosis(In YYYY/MM/DD format)</label>
 				<input
-				class="form-control" type="date" name="Date_of_Diagnosis" id='Date_of_Diagnosis'  />
+				class="form-control" type="date" name="Date_of_Diagnosis" id='Date_of_Diagnosis' required ="" />
 				<br>
 				<label  style=" color:black;" for="Date_of_Intake">Date of Intake</label>
 				<input
@@ -166,31 +166,35 @@
 				type = "date"
 				name = "Date_of_Intake"
 				id = 'Date_of_Intake'
+				required =""
 				/><br>
 				<label  style=" color:black;" for="Name of Disease">Name of Disease or Procedure</label>
 				<input
 				class="form-control"
 				type="text"
 				name="name_of_disease"
+				required =""
 				/><br>
 				<label  style=" color:black;" for="Location">Enter State </label>
 				<input
 				class="form-control"
 				type="text"
 				name="Enter State"
+				required =""
 				/><br><label  style=" color:black;" for="Race">Enter Race</label>
 				<input
 				class="form-control"
 				type="text"
 				name="Enter Race"
+				required =""
 				/><br>
 				<label style=" color:black;"for="no_of_days">Number of days you need to intake medicine</label>
-				<select name="num_days" id="num_days">
+				<select name="num_days" id="num_days" required ="">
 					<option value="7" >7</option>
 					<option value="14" >14</option>
 				</select><br />
 				<label style=" color:black;"for="no_of_intakes">Pills per day you need</label>
-				<select name="num_per_days" id="num_per_days">
+				<select name="num_per_days" id="num_per_days" required ="">
 					<option value="1" >1</option>
 					<option value="2" >2</option>
 					<option value="3" >3</option>
