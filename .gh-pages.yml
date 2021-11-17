@@ -1,4 +1,4 @@
 redirects:
-    redirect_to: ./frontend/index.html
+    redirect_to: index.html
     try_files: true
     title: Home Page
