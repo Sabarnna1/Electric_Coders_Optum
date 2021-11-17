@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Insurance Company</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+	</head>
+	<body>
+		<style>
+		.sidenav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #111;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+		}
+		.sidenav a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+		}
+		.sidenav a:hover {
+		color: #f1f1f1;
+		}
+		.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+		}
+		#main {
+		transition: margin-left .5s;
+		padding: 16px;
+		}
+		@media screen and (max-height: 450px) {
+		.sidenav {padding-top: 15px;}
+		.sidenav a {font-size: 18px;}
+		}
+		h1, h3,h2{
+		text-align:center;
+		}
+		h1 {
+		color:rgba(100, 50, 255, .8);
+		font-family: 'Pacifico', cursive;
+		color:#212121;
+		}
+		
+		</style>
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="./index.html">Home</a>
+			<a href="./allergies.html">Allergies</a>
+			<a href="./condition.html">Conditions</a>
+			<a href="./procedures.html">Procedures</a>
+			<a href="./immunizations.html">Immunizations</a>
+			<a href="./medicine.html">Medicines</a>
+			<a href="#">Insurance Companies</a>
+			<a href="./insurance_transactions.html">Insurance Transactions</a>
+			<a href="./adherance.html">Adherence</a>
+		</div>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+		<div id="main">
+			<h1>Insurance Company Name and Percentage</h1>
+			<canvas id="myChart" ></canvas>
+			<h2>Some Useful Points</h2>
+			<ul>
+				<li style="color: #EB8E10; text-align: center;"><h3 style="color: #EB8E10; text-align: left;">Most percentage of insurance company is <b>Medicare</b> which is 36.647%</h3> </li>
+				<li style="color: #EB8E10;"><h3 style="color: #EB8E10; text-align: left;">Total types of insurance companies are 9</h3> </li>
+			</ul>
+		</div>
+		<script>
+		const ctx = document.getElementById('myChart').getContext('2d');
+		const myChart = new Chart(ctx, {
+		type: 'pie',
+		data: {
+		labels: ['Medicare', 'Blue Cross Blue Shield', 'Medicaid', 'UnitedHealthcare', 'Humana', 'Cigna Health', 'Aetna', 'Anthem', 'Dual Elligible'],
+		datasets: [{
+		label: 'Allergy',
+		data: [36.646953093291586, 14.153186061344003,12.92688583521772,8.859511799153475,8.62758740650548, 6.4619933901548094,5.7053400591407195,4.966081057575231,1.6524612976169768],
+		backgroundColor: [
+		'rgba(249, 96, 131, 0.6)',
+		'rgba(54, 162, 235, 0.6)',
+		'rgba(255, 206, 86, 0.6)',
+		'rgba(75, 192, 192, 0.6)',
+		'rgba(153, 102, 255, 0.6)',
+		'rgba(255, 159, 64, 0.6)'
+		],
+		borderColor: [
+		'rgba(255, 99, 132, 1)',
+		'rgba(54, 162, 235, 1)',
+		'rgba(255, 206, 86, 1)',
+		'rgba(75, 192, 192, 1)',
+		'rgba(153, 102, 255, 1)',
+		'rgba(255, 159, 64, 1)'
+		],
+		borderWidth: 1
+		}]
+		},
+		/*options : {
+		scales: {
+		x: {
+		title: {
+		color: 'blue',
+		display: true,
+		text: 'Allergy Name'
+		}
+		}
+		}
+		}*/
+		});
+		function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("main").style.marginLeft = "250px";
+		document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+		}
+		function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("main").style.marginLeft= "0";
+		document.body.style.backgroundColor = "white";
+		}
+		</script>
+	</body>
+</html>
