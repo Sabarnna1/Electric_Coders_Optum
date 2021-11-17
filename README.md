@@ -13,4 +13,4 @@
 
 ## App Links
 ### Video Link: [Demo Video](https://drive.google.com/file/d/1MGBwY08tuQmNyhmq0mvBBa_WTWLq3A4-/view?usp=sharing)
-### Host Link - https://sabarnna1.github.io/Electric_Coders_Optum/
+### Host Link: https://sabarnna1.github.io/Electric_Coders_Optum/
