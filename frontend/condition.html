@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Conditions</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+	</head>
+	<body>
+		<style>
+		.sidenav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #111;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+		}
+		.sidenav a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+		}
+		.sidenav a:hover {
+		color: #f1f1f1;
+		}
+		.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+		}
+		#main {
+		transition: margin-left .5s;
+		padding: 16px;
+		}
+		@media screen and (max-height: 450px) {
+		.sidenav {padding-top: 15px;}
+		.sidenav a {font-size: 18px;}
+		}
+		h1, h3,h2{
+		text-align:center;
+		}
+		h1 {
+		color:rgba(100, 50, 255, .8);
+		font-family: 'Pacifico', cursive;
+		color:#212121;
+		}
+		
+		</style>
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="./index.html">Home</a>
+			<a href="./allergies.html">Allergies</a>
+			<a href="#">Conditions</a>
+			<a href="./procedures.html">Procedures</a>
+			<a href="./immunizations.html">Immunizations</a>
+			<a href="./medicine.html">Medicines</a>
+			<a href="./insurance_company.html">Insurance Companies</a>
+			<a href="./insurance_transactions.html">Insurance Transactions</a>
+			<a href="./adherance.html">Adherence</a>
+		</div>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+		<div id="main">
+			<h1>Condition Name and Count</h1>
+			<canvas id="myChart" width="600" height="350"></canvas>
+			<h2>Some Useful Points</h2>
+			<ul>
+				<li style="color: #EB8E10; text-align: center;"><h3 style="color: #EB8E10; text-align: left;">Maximum type of condition is <b>Viral sinusitis (disorder)</b> which is 1248</h3> </li>
+				<li style="color: #EB8E10;"><h3 style="color: #EB8E10; text-align: left;">Total types of conditons are 129</h3> </li>
+			</ul>
+		</div>
+		<script>
+		const ctx = document.getElementById('myChart').getContext('2d');
+		const myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+		labels: ['Viral sinusitis (disorder)',
+  'Acute viral pharyngitis (disorder)',
+  'Acute bronchitis (disorder)',
+  'Normal pregnancy',
+  'Body mass index 30+ - obesity (finding)',
+  'Prediabetes',
+  'Hypertension',
+  'Anemia (disorder)',
+  'Chronic sinusitis (disorder)',
+  'Miscarriage in first trimester',
+  'Otitis media',
+  'Streptococcal sore throat (disorder)',
+  'Hyperlipidemia',
+  'Sprain of ankle',
+  'Polyp of colon',
+  'Concussion with no loss of consciousness',
+  'Diabetes',
+  'Hypertriglyceridemia (disorder)',
+  'Metabolic syndrome X (disorder)',
+  'Acute bacterial sinusitis (disorder)',
+  'Sinusitis (disorder)',
+  'Osteoarthritis of knee',
+  'Coronary Heart Disease',
+  'Impacted molars',
+  'Osteoporosis (disorder)',
+  'Chronic congestive heart failure (disorder)',
+  'Sprain of wrist',
+  'Chronic pain',
+  'Whiplash injury to neck',
+  'Chronic intractable migraine without aura',
+  'Drug overdose',
+  'History of appendectomy',
+  'Appendicitis',
+  'Fetus with unknown complication',
+  'Stroke',
+  'History of cardiac arrest (situation)',
+  'Escherichia coli urinary tract infection',
+  'Cardiac Arrest',
+  'Hyperglycemia (disorder)',
+  'Fracture of forearm',
+  'Laceration of forearm',
+  'Tubal pregnancy',
+  'Fracture subluxation of wrist',
+  'History of single seizure (situation)',
+  'Seizure disorder',
+  'Diabetic renal disease (disorder)',
+  'Facial laceration',
+  'Laceration of hand',
+  'Laceration of thigh',
+  'Atrial Fibrillation',
+  'Laceration of foot',
+  'Chronic kidney disease stage 1 (disorder)',
+  'Perennial allergic rhinitis with seasonal variation',
+  'Neoplasm of prostate',
+  'Fracture of ankle',
+  'Cystitis',
+  'Childhood asthma',
+  'Perennial allergic rhinitis',
+  'Carcinoma in situ of prostate (disorder)',
+  'Fracture of clavicle',
+  'Localized  primary osteoarthritis of the hand',
+  'Antepartum eclampsia',
+  "Alzheimer's disease (disorder)",
+  'Neuropathy due to type 2 diabetes mellitus (disorder)',
+  'Epilepsy',
+  'Myocardial Infarction',
+  'Malignant neoplasm of breast (disorder)',
+  'History of myocardial infarction (situation)',
+  'Concussion with loss of consciousness',
+  'Osteoarthritis of hip',
+  'Recurrent rectal polyp',
+  'Child attention deficit disorder',
+  'Atopic dermatitis',
+  'Preeclampsia',
+  'Second degree burn',
+  'Acute allergic reaction',
+  'Pulmonary emphysema (disorder)',
+  'Pathological fracture due to osteoporosis (disorder)',
+  'First degree burn',
+  'Fracture of rib',
+  'Blighted ovum',
+  'Suspected lung cancer (situation)',
+  'Seasonal allergic rhinitis',
+  'Non-small cell carcinoma of lung  TNM stage 1 (disorder)',
+  'Non-small cell lung cancer (disorder)',
+  'Diabetic retinopathy associated with type II diabetes mellitus (disorder)',
+  'Recurrent urinary tract infection',
+  'Rupture of appendix',
+  'Injury of tendon of the rotator cuff of shoulder',
+  'Opioid abuse (disorder)',
+  'Injury of medial collateral ligament of knee',
+  'Idiopathic atrophic hypothyroidism',
+  'Closed fracture of hip',
+  'Alcoholism',
+  'Bullet wound',
+  'Chronic obstructive bronchitis (disorder)',
+  'Pneumonia',
+  'Body mass index 40+ - severely obese (finding)',
+  'Microalbuminuria due to type 2 diabetes mellitus (disorder)',
+  'Chronic kidney disease stage 2 (disorder)',
+  'Rupture of patellar tendon',
+  'Overlapping malignant neoplasm of colon',
+  'Malignant tumor of colon',
+  'Protracted diarrhea',
+  'Smokes tobacco daily',
+  'Bleeding from anus',
+  'Nonproliferative diabetic retinopathy due to type 2 diabetes mellitus (disorder)',
+  'Brain damage - traumatic',
+  'Concussion injury of brain',
+  'Tear of meniscus of knee',
+  'Metastasis from malignant tumor of prostate (disorder)',
+  'Gout',
+  'Major depression disorder',
+  'Contact dermatitis',
+  'Secondary malignant neoplasm of colon',
+  "Familial Alzheimer's disease of early onset (disorder)",
+  'Injury of anterior cruciate ligament',
+  'Rheumatoid arthritis',
+  'Primary fibromyalgia syndrome',
+  'Burn injury(morphologic abnormality)',
+  'Small cell carcinoma of lung (disorder)',
+  'Primary small cell malignant neoplasm of lung  TNM stage 1 (disorder)',
+  'Primary malignant neoplasm of colon',
+  'Fracture of vertebral column without spinal cord injury',
+  'Pyelonephritis',
+  'Proliferative diabetic retinopathy due to type II diabetes mellitus (disorder)',
+  'Macular edema and retinopathy due to type 2 diabetes mellitus (disorder)',
+  'Fracture of the vertebral column with spinal cord injury',
+  'Major depression  single episode'],
+		datasets: [{
+		label: 'Conditions',
+		data: [1248, 653, 563, 516, 449, 317, 302, 300, 236, 221, 196, 157,
+   136, 134,  79,  77,  76,  74,  74,  69,  66,  65,  61,  57,
+    57,  57,  56,  55,  55,  53,  52,  50,  50,  49,  48,  47,
+    47,  47,  44,  44,  43,  41,  41,  40,  40,  37,  36,  36,
+    35,  34,  33,  32,  32,  30,  30,  30,  29,  28,  27,  27,
+    26,  26,  25,  24,  22,  21,  21,  21,  21,  21,  20,  20,
+    20,  19,  19,  19,  18,  18,  18,  17,  17,  15,  15,  14,
+    14,  13,  13,  12,  12,  11,  11,  11,  10,  10,   9,   9,
+     8,   8,   8,   8,   7,   7,   7,   7,   7,   7,   7,   6,
+     6,   6,   5,   5,   5,   5,   4,   4,   4,   2,   2,   2,
+     1,   1,   1,   1,   1,   1,   1,   1,   1],
+		backgroundColor: [
+		'rgba(54, 162, 235, 0.6)'
+		],
+		borderColor: [
+		'rgba(54, 162, 235, 1)'
+		],
+		borderWidth: 1
+		}]
+		},
+		options : {
+		scales: {
+		x: {
+		title: {
+		color: 'blue',
+		display: true,
+		text: 'Conditions Name'
+		}
+		}
+		}
+		}
+		});
+		function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("main").style.marginLeft = "250px";
+		document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+		}
+		function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("main").style.marginLeft= "0";
+		document.body.style.backgroundColor = "white";
+		}
+		</script>
+	</body>
+</html>
