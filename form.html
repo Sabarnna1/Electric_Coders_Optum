@@ -172,13 +172,14 @@
 				class="form-control"
 				type="text"
 				name="name_of_disease"
+				id = 'name_of_disease'
 				/><br>
-				<label  style=" color:black;" for="Location">Enter County </label>
+				<label  style=" color:black;" for="Location">Enter State </label>
 				<input
 				class="form-control"
 				type="text"
 				name="Enter State"
-				/><br><label  style=" color:black;" for="Race">Enter Ethnicity</label>
+				/><br><label  style=" color:black;" for="Race">Enter Race</label>
 				<input
 				class="form-control"
 				type="text"
@@ -205,29 +206,43 @@
 		</div>
 	</div>
 	<script type = "text/javascript" >
-	function parseDate(input) {
+	function parseDate(input)
+	{
 	var parts = input.match(/(\d+)/g);
 	// new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
 	return new Date(parts[0], parts[1], parts[2]); // months are 0-based
 	}
-		function date(){
+	
+	function date()
+	{
 		date1 = document.getElementById('Date_of_Diagnosis').value;
 		date2 = document.getElementById('Date_of_Intake').value;
 		Difference_In_Time =parseDate(date2).getTime()-parseDate(date1).getTime();
 		Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 		return Difference_In_Days;
-		}
-	function adhere(){
+	}
+	function adhere()
+	{
 	date1 = document.getElementById('Date_of_Diagnosis').value;
 	date2 = document.getElementById('Date_of_Intake').value;
+	disease = document.getElementById('name_of_disease').value;
 	Difference_In_Time =parseDate(date2).getTime()-parseDate(date1).getTime();
 	Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-	var y = Math.random();
+	y = Math.random();
+	z = Math.random();
+	dis = ['Allergy to mould', 'Dander (animal) allergy', 'Allergy to tree pollen', 'House dust mite allergy', 'Allergy to grass pollen', 'Shellfish allergy', 'Allergy to bee venom', 'Allergy to nut', 'Allergy to fish', 'Allergy to wheat', 'Allergy to peanuts', 'Latex allergy', 'Allergy to eggs', 'Allergy to dairy product', 'Allergy to soya'];
 	if (Difference_In_Days > 3)
 		window.alert("Patient is not Adhering");
+	else if (dis.includes(disease))
+	{
+		if(y<0.5)
+			window.alert("Patient is not Adhering");
+	   else
+	      window.alert("Patient is Adhering");
+	}
 	else
 	{
-	if (y < 0.3)
+	if (y < 0.2)
 	window.alert("Patient is not Adhering");
 	else
 	window.alert("Patient is Adhering");
