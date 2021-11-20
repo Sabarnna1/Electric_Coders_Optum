@@ -20,6 +20,7 @@ let x=[];
 let y=[];
 
 fetch('https://optum-analysis.herokuapp.com/immunizer')
+//use require link with the endpoints like allergies,medicine etc
 .then(response=>{
     //console.log(response.json());
     return response.json();
