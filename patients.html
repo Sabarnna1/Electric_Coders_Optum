@@ -123,25 +123,25 @@
 			<a href="./patient_sex.html">Gender Ratio</a>
 			<a href="./patient_race">Race</a>
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-				<i class="fa fa-bars"></i>
+			<i class="fa fa-bars"></i>
 			</a>
 		</div>
 			<h1>County</h1>
 			<canvas id="myChart" width="400" height="180"></canvas>
 			<h2>Some Useful Points</h2>
 			<ul>
-				<li style="color: #EB8E10; text-align: center;"><h3 style="color: #EB8E10; text-align: left;">Most patients are from county <b></b> which is </h3> </li>
-				<li style="color: #EB8E10;"><h3 style="color: #EB8E10; text-align: left;">Total numbers of counties are 15</h3> </li>
+				<li style="color: #EB8E10; text-align: center;"><h3 style="color: #EB8E10; text-align: left;">Most patients are from <b>Boston</b> which is 116</h3> </li>
+				<li style="color: #EB8E10;"><h3 style="color: #EB8E10; text-align: left;">Total numbers of counties are </h3> </li>
 			</ul>
 		</div>
 		<script>
 		const ctx = document.getElementById('myChart').getContext('2d');
 		const myChart = new Chart(ctx, {
-		type: 'bar',
+		type: 'scatter',
 		data: {
 		labels: [],
 		datasets: [{
-		label: '',
+		label: 'County',
 		data: [],
 		backgroundColor: [
 		'rgba(249, 96, 131, 0.6)',
@@ -168,7 +168,7 @@
 		title: {
 		color: 'blue',
 		display: true,
-		text: ''
+		text: 'County'
 		}
 		}
 		}
