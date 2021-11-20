@@ -118,31 +118,128 @@
 		
 		<div id="main">
 			<div class="topnav" id="myTopnav">
-			<a href="#" class="active">County</a>
-			<a href="./patient_ethnicity.html">Ethnicity</a>
-			<a href="./patient_sex.html">Gender Ratio</a>
-			<a href="./patient_race">Race</a>
-			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-			<i class="fa fa-bars"></i>
-			</a>
-		</div>
+				<a href="#" class="active">County</a>
+				<a href="./patient_ethnicity.html">Ethnicity</a>
+				<a href="./patient_sex.html">Gender Ratio</a>
+				<a href="./patient_race">Race</a>
+				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
 			<h1>County</h1>
 			<canvas id="myChart" width="400" height="180"></canvas>
 			<h2>Some Useful Points</h2>
 			<ul>
 				<li style="color: #EB8E10; text-align: center;"><h3 style="color: #EB8E10; text-align: left;">Most patients are from <b>Boston</b> which is 116</h3> </li>
-				<li style="color: #EB8E10;"><h3 style="color: #EB8E10; text-align: left;">Total numbers of counties are </h3> </li>
+				<li style="color: #EB8E10;"><h3 style="color: #EB8E10; text-align: left;">Total numbers of counties are 237 </h3> </li>
 			</ul>
 		</div>
 		<script>
 		const ctx = document.getElementById('myChart').getContext('2d');
 		const myChart = new Chart(ctx, {
-		type: 'scatter',
+		type: 'line',
 		data: {
-		labels: [],
+		labels: [ 'Boston',                'Worcester',        'Cambridge',
+		'Springfield',           'Quincy',           'Fall River',
+		'Lynn',                  'Lowell',           'New Bedford',
+		'Framingham',            'Waltham',          'Chicopee',
+		'Somerville',            'Norwood',          'Malden',
+		'Peabody',               'Fitchburg',        'Brockton',
+		'Barnstable',            'Weymouth',         'Newton',
+		'Chatham',               'Taunton',          'Haverhill',
+		'West Springfield',      'Revere',           'Dennis',
+		'Attleboro',             'Northbridge',      'Fairhaven',
+		'Newburyport',           'Marlborough',      'Needham',
+		'Lawrence',              'Woburn',           'Salem',
+		'Westport',              'Pittsfield',       'Franklin',
+		'Beverly',               'Medford',          'Lunenburg',
+		'Shrewsbury',            'Middleborough',    'Gardner',
+		'South Hadley',          'Concord',          'Wareham',
+		'Chelmsford',            'Brookline',        'Arlington',
+		'Walpole',               'Winchester',       'Natick',
+		'Chelsea',               'Holyoke',          'Everett',
+		'Billerica',             'Milford',          'Plymouth',
+		'Tewksbury',             'Easthampton',      'Agawam',
+		'Wakefield',             'Hatfield',         'Wilmington',
+		'Southborough',          'North Brookfield', 'Belchertown',
+		'Marshfield',            'Swansea',          'Greenfield',
+		'Burlington',            'North Andover',    'Milton',
+		'Clinton',               'Amherst',          'Sharon',
+		'West Tisbury',          'Stoneham',         'Gloucester',
+		'Longmeadow',            'Melrose',          'Uxbridge',
+		'North Attleborough',    'Yarmouth',         'Hanover',
+		'Millis',                'Braintree',        'New Ashford',
+		'Canton',                'Hingham',          'Kingston',
+		'Scituate',              'Somerset',         'Rochester',
+		'Westfield',             'Auburn',           'Stow',
+		'Westminster',           'Abington',         'Bridgewater',
+		'Dartmouth',             'Saugus',           'Norfolk',
+		'Wilbraham',             'Norton',           'Wellesley',
+		'Salisbury',             'North Adams',      'Sheffield',
+		'Foxborough',            'Plainville',       'Raynham',
+		'Stoughton',             'Hopkinton',        'Spencer',
+		'Southwick',             'Dedham',           'Holliston',
+		'Seekonk',               'Danvers',          'Northborough',
+		'Acton',                 'Reading',          'Leominster',
+		'Grafton',               'Blackstone',       'Methuen',
+		'Bellingham',            'Dover',            'Wayland',
+		'Palmer',                'Duxbury',          'Randolph',
+		'Watertown',             'Amesbury',         'Millville',
+		'Williamsburg',          'Ware',             'East Longmeadow',
+		'Phillipston',           'Leicester',        'Rutland',
+		'Orange',                'Marblehead',       'Ayer',
+		'Southbridge',           'Lexington',        'Maynard',
+		'Ipswich',               'Hudson',           'Hamilton',
+		'Wellfleet',             'Hampden',          'Middleton',
+		'Boxford',               'Winchendon',       'Brewster',
+		'Webster',               'Carlisle',         'Westborough',
+		'Eastham',               'Mansfield',        'Hopedale',
+		'Nantucket',             'Lakeville',        'Pembroke',
+		'Medfield',              'Bernardston',      'Ashland',
+		'Rehoboth',              'East Bridgewater', 'Lenox',
+		'Rockport',              'Warren',           'Sandwich',
+		'Littleton',             'East Brookfield',  'Westford',
+		'Ashburnham',            'Acushnet',         'Worthington',
+		'Dalton',                'Southampton',      'Williamstown',
+		'Avon',                  'Wrentham',         'North Reading',
+		'Essex',                 'Lancaster',        'Athol',
+		'Leverett',              'Harwich',          'Dudley',
+		'Oxford',                'Swampscott',       'Provincetown',
+		'Manchester-by-the-Sea', 'Sudbury',          'Weston',
+		'Cohasset',              'Holden',           'Cheshire',
+		'Freetown',              'Mattapoisett',     'Leyden',
+		'Medway',                'Gill',             'Easton',
+		'Bourne',                'Lynnfield',        'Deerfield',
+		'Norwell',               'Colrain',          'Mashpee',
+		'Andover',               'Hanson',           'Montague',
+		'Carver',                'Adams',            'Tyngsborough',
+		'Falmouth',              'Douglas',          'Winthrop',
+		'Shirley',               'Belmont',          'Groveland',
+		'Holbrook',              'Holland',          'Upton',
+		'Chester',               'Great Barrington', 'Halifax',
+		'Rockland',              'Northampton',      'Millbury'],
 		datasets: [{
 		label: 'County',
-		data: [],
+		data: [116, 31, 27, 23, 20, 19, 18, 18, 17, 16, 16, 14,
+		14, 13, 13, 13, 12, 12, 12, 12, 12, 10, 10, 10,
+		9,  9,  9,  9,  9,  9,  9,  9,  9,  8,  8,  8,
+		8,  8,  8,  7,  7,  7,  7,  7,  7,  7,  7,  7,
+		7,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+		6,  6,  6,  6,  5,  5,  5,  5,  5,  5,  5,  5,
+		5,  5,  5,  5,  5,  5,  5,  5,  5,  4,  4,  4,
+		4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,
+		4,  4,  4,  4,  4,  4,  4,  4,  3,  3,  3,  3,
+		3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,
+		3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  2,  2,
+		2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,
+		2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,
+		2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,
+		2,  2,  2,  2,  1,  1,  1,  1,  1,  1,  1,  1,
+		1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,
+		1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,
+		1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,
+		1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,
+		1,  1,  1,  1,  1,  1,  1,  1,  1],
 		backgroundColor: [
 		'rgba(249, 96, 131, 0.6)',
 		'rgba(54, 162, 235, 0.6)',
