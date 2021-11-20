@@ -72,8 +72,6 @@
   }
 }
 
-
-
 .debug .jt__row:nth-child(even) {
   color: black;
   background: white;
@@ -85,7 +83,7 @@
 
 * { box-sizing: border-box }
 
-html, body {
+html {
   margin: 0;
   color: tomato;
   height: 100%;
@@ -164,3 +162,4 @@ body {
   width: calc(50% - 4px);
   margin: 0 auto;
 }
+
