@@ -42,5 +42,10 @@ def insurance_transactions():
 def patient_issue_count():
     return(patient_health_issue_count())
 
+# Population
+@app.route('/population_info',methods = ['GET'])
+def population_info():
+    return(population())
+
 if __name__=='__main__':
     app.run()

@@ -82,8 +82,34 @@ def used_insurance():
     del df['count']
     
     return({'insurance_transactions':df.to_dict('records')})
+    
 
-# print(used_insurance())
+def population():
+
+    res = {}
+
+    # RACE
+    patients = df_patients['RACE'].value_counts().to_dict()
+    patients = {'race': [{'race': x, 'count': patients[x]} for x in patients]}
+    res.update(patients)
+
+    # ETHNICITY
+    patients = df_patients['ETHNICITY'].value_counts().to_dict()
+    patients = {'ethnicity': [{'ethnicity': x, 'count': patients[x]} for x in patients]}
+    res.update(patients)
+
+    # GENDER
+    patients = df_patients['GENDER'].value_counts().to_dict()
+    patients = {'gender': [{'gender': x, 'count': patients[x]} for x in patients]}
+    res.update(patients)
+
+    # CITY
+    patients = df_patients['CITY'].value_counts().to_dict()
+    patients = {'city': [{'city': x, 'count': patients[x]} for x in patients]}
+    res.update(patients)
+
+    return(res)
+
 
 def patient_health_issue_count():
 
